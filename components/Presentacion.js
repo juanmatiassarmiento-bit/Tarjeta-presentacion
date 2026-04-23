@@ -1,43 +1,47 @@
-import { StyleSheet, Text, Image, Linking, SafeAreaView, ScrollView } from "react-native";
+import { StyleSheet, Text, Image, Linking, ScrollView, View } from 'react-native';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Presentacion() {
-
   const abrirInstagram = () => {
-    Linking.openURL("https://www.instagram.com/juanma_tias?igsh=MTRlYmJ5aHdkbmZpeQ==");
+    Linking.openURL(
+      'https://www.instagram.com/juanma_tias?igsh=MTRlYmJ5aHdkbmZpeQ=='
+    );
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView>
       <ScrollView contentContainerStyle={styles.scroll}>
+        <Image source={require('./assets/imagen.jpg')} style={styles.imagen} />
 
-        <Image 
-          source={require("../WhatsApp Image 2026-04-09 at 09.44.40.jpeg")} 
-          style={styles.imagen}
-        />
+        <View style={styles.infoContainer}>
+  <Text style={styles.texto}>Nombre: Juan Matías Sarmiento</Text>
+  <Text style={styles.texto}>Edad: 17 años</Text>
+  <Text style={styles.texto}>Fecha de nacimiento: 14-04-2009</Text>
 
-        <Text style={styles.texto}>Nombre: Juan Matías Sarmiento</Text>
-        <Text style={styles.texto}>Edad: 16 años</Text>
-        <Text style={styles.texto}>Fecha de nacimiento: 14-04-2009</Text>
-
-        <Text style={styles.link} onPress={abrirInstagram}>
-          Ir a mi Instagram
-        </Text>
-
+  <Text style={styles.link} onPress={abrirInstagram}>
+    Ir a mi Instagram
+  </Text>
+</View>
       </ScrollView>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  infoContainer: {
+  alignItems: 'center',
+  width: '100%',
+},
+
   container: {
     flex: 1,
-    backgroundColor: "#f2f2f2",
+    backgroundColor: '#f2f2f2',
   },
 
   scroll: {
     flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingVertical: 40,
   },
 
@@ -51,17 +55,17 @@ const styles = StyleSheet.create({
   texto: {
     fontSize: 20,
     marginVertical: 6,
-    color: "#000", // 
-    fontWeight: "bold",
-    textAlign: "center",
+    color: '#000', // 👈 negro para que SIEMPRE se vea
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 
-  link: { 
+  link: {
     marginTop: 25,
-    color: "#fff",
+    color: '#fff',
     fontSize: 16,
-    fontWeight: "bold",
-    backgroundColor: "#E1306C",
+    fontWeight: 'bold',
+    backgroundColor: '#E1306C',
     paddingVertical: 12,
     paddingHorizontal: 30,
     borderRadius: 25,
